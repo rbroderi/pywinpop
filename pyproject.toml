@@ -1,0 +1,67 @@
+[project]
+name = "pywinpop"
+version = "2026.05.05.00"
+description = "a windows popup library"
+readme = "README.md"
+license = "LGPL-3.0-or-later"
+authors = [{ name = "rbroderi", email = "richard.broderick@gmail.com" }]
+requires-python = ">=3.14"
+classifiers = [
+  "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = ["beartype>=0.22.9"]
+
+[project.scripts]
+pywinpop = "pywinpop.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+  "prek>=0.3.13",
+  "pytest>=9.0.3",
+  "pytest-cov>=7.1.0",
+  "pytest-sugar>=1.1.1",
+]
+docs = [
+  "furo>=2025.7.19",
+  "sphinx>=8.2.3",
+  "sphinx-autobuild>=2024.10.3",
+  "zensical>=0.0.32",
+]
+build = ["pyinstaller>=6.16.0"]
+
+[build-system]
+requires = ["uv_build>=0.11.6,<0.12"]
+build-backend = "uv_build"
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+include = ["src", "src/pywinpop/tests"]
+pythonVersion = "3.14"
+reportUnusedCallResult = "none"
+reportAny = "none"
+reportExplicitAny = "none"
+reportImplicitStringConcatenation = "none"
+reportUnusedFunction = "none"
+reportMissingParameterType = "none"
+reportUnknownParameterType = "none"
+reportUnknownVariableType = "none"
+reportUnknownArgumentType = "none"
+reportUnknownMemberType = "none"
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.coverage.run]
+source = ["src/pywinpop"]
+omit = ["src/pywinpop/tests/*"]
+
+[tool.pyrefly]
+permissive-ignores = true

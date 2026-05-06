@@ -1,0 +1,37 @@
+"""Sphinx configuration for API documentation."""
+
+from __future__ import annotations
+
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath("../src"))
+
+project = "pywinpop"
+author = "Project contributors"
+
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+]
+
+autosummary_generate = True
+add_module_names = False
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+autodoc_typehints = "signature"
+root_doc = "apidoc/modules"
+
+templates_path = ["_templates"]
+exclude_patterns: list[str] = ["_build", "Thumbs.db", ".DS_Store"]
+
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+
+html_theme = "furo"
+html_theme_options = {
+    "sidebar_hide_name": True,
+    "navigation_with_keys": True,
+}
