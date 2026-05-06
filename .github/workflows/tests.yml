@@ -9,7 +9,7 @@ permissions:
 jobs:
   tests:
     name: Test suite with coverage
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     timeout-minutes: 20
     steps:
       - name: Checkout repository

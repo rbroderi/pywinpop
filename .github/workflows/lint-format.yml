@@ -9,7 +9,7 @@ permissions:
 jobs:
   lint-format:
     name: Lint and format checks
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     timeout-minutes: 30
     steps:
       - name: Checkout repository
@@ -23,6 +23,7 @@ jobs:
       - name: Install project with dev dependencies
         run: uv sync --extra dev
       - name: Run lint and format hooks
+        shell: bash
         run: |
           uv run prek run ssort --all-files
           uv run prek run fix-byte-order-marker check-merge-conflict \
